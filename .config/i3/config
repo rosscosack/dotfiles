@@ -193,6 +193,6 @@ gaps outer 9
 
 #for_window [class="mpv"] floating enable, move position 1280 0
 
-bindsym $mod+b exec bash cam-720.sh
+bindsym $mod+b exec bash scripts/cam-720.sh
 bindsym $mod+shift+s exec systemctl suspend
 
