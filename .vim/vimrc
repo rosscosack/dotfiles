@@ -37,8 +37,7 @@ endif
 set background=dark
 colorscheme gruvbox
 
-"Map esc
-imap jk <Esc>
+nmap ,a :w<cr>:!clear && python %<cr>
 
 "Treat md files as markdown
 "au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
