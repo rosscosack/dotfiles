@@ -14,7 +14,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'tpope/vim-surround'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'Valloric/YouCompleteMe'
 
@@ -37,7 +36,7 @@ endif
 set background=dark
 colorscheme gruvbox
 
-nmap ,a :w<cr>:!clear && python %<cr>
+nmap ,a :w<cr>:!clear && python3 %<cr>
 
 "Treat md files as markdown
 "au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
@@ -147,4 +146,3 @@ set linespace=2
 
 "Hide mouse when typing
 set mousehide
-autocmd FileType python nnoremap <buffer> <F5> :exec '!clear; python' shellescape(@%, 1)<cr>
