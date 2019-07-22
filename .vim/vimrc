@@ -36,7 +36,7 @@ endif
 set background=dark
 colorscheme gruvbox
 
-nmap ,a :w<cr>:!clear && python3 %<cr>
+nmap ,a :w<cr>:!clear; python3 %<cr>
 
 "Treat md files as markdown
 "au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
