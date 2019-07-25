@@ -146,3 +146,6 @@ set linespace=2
 
 "Hide mouse when typing
 set mousehide
+
+set term=screen-256color
+set t_ut=
