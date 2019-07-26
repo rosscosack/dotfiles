@@ -180,6 +180,7 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 client.background       #FFFFFF
 
 exec --no-startup-id feh --randomize --bg-fill /home/ross/wallpaper/*
+bindsym $mod+shift+b exec --no-startup-id feh --randomize --bg-fill /home/ross/wallpaper/*
 #exec setxkbmap -option ctrl:nocaps
 #exec -e 'Control_L=Escape'
 exec --no-startup-id "compton -b --config ~/.config/compton/compton.conf"
