@@ -146,3 +146,4 @@ set linespace=2
 
 "Hide mouse when typing
 set mousehide
+map ,h :nohl<cr>
