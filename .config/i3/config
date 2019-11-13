@@ -7,7 +7,7 @@ set $mod Mod1
 bindsym $mod+Shift+q kill
 
 # Please see http://i3wm.org/dmenu (a program launcher)
-bindsym $mod+d exec j4-dmenu-desktop --dmenu="dmenu -i -sb '#D64937'" 
+bindsym $mod+d exec j4-dmenu-desktop --dmenu="dmenu_run -i -sb '#D64937' -fn Hack-11" 
 #bindsym $mod+d exec dmenu -i -sb '#D64937' 
 
 # start a terminal
@@ -15,6 +15,17 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 #set font
 font pango: Hack 11
+
+workspace 1 output DVI-D-1
+workspace 2 output DVI-D-1
+workspace 3 output DVI-D-1
+workspace 4 output DVI-D-1
+workspace 5 output DVI-D-1
+workspace 6 output DVI-D-1
+workspace 7 output DVI-D-1
+workspace 8 output DVI-D-1
+workspace 10 output HDMI-1
+workspace 9 output HDMI-1
 
 # change focus
 bindsym $mod+h focus left
@@ -150,15 +161,16 @@ bar {
     height 25
     #tray_padding 20
         colors {
-            background #1b1b1b
+            background #2d2d2d
             statusline #f9f9f9
             separator  #666666
 
-            focused_workspace  #2d2d2d #D64937 #FFFFFF
-            active_workspace   #2d2d2d #000000 #FFFFFF
-            inactive_workspace #2d2d2d #333333 #888888
-            urgent_workspace   #2F343A #900000 #FFFFFF
-            binding_mode       #2F343A #900000 #FFFFFF
+                                #border $bkgrnd #text
+            focused_workspace   #2d2d2d #D64937 #FFFFFF
+            active_workspace    #2d2d2d #dedede #333333
+            inactive_workspace  #2d2d2d #2d2d2d #dedede
+            urgent_workspace    #2F343A #900000 #FFFFFF
+            binding_mode        #2F343A #900000 #FFFFFF
         }
 }
 
@@ -171,9 +183,9 @@ bar {
 #2d2d2d dark-black
 
 # class                 border  bground text    indicator child_border
-client.focused          #333333 #333333 #FFFFFF #d64937   #333333   
-client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
-client.unfocused        #2d2d2d #222222 #888888 #2d2d2d   #2d2d2d
+client.focused          #d64937 #333333 #FFFFFF #d64937   #dedede
+client.focused_inactive #333333 #333333 #FFFFFF #484E50   #5F676A
+client.unfocused        #2d2d2d #333333 #888888 #2d2d2d   #2d2d2d
 client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
@@ -181,22 +193,22 @@ client.background       #FFFFFF
 
 exec --no-startup-id feh --randomize --bg-fill /home/ross/wallpaper/*
 bindsym $mod+shift+b exec --no-startup-id feh --randomize --bg-fill /home/ross/wallpaper/*
-#exec setxkbmap -option ctrl:nocaps
-#exec -e 'Control_L=Escape'
-exec --no-startup-id "compton -b --config ~/.config/compton/compton.conf"
+exec --no-startup-id "compton -f --config ~/.config/compton/compton.conf"
+
+exec --no-startup-id xrandr --output DVI-D-1  --left-of HDMI-1 --primary --auto
 
 
 #gaps
 #Note: In order to use gaps you need to disable window titlebars. This can be done by adding the following line to your config.
 # You can also use any non-zero value if you'd like to have a border
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 2
 
 gaps inner 8
 gaps outer 9
 #smart_gaps on
 
-#for_window [class="mpv"] floating enable, move position 1280 0
-
-bindsym $mod+b exec bash scripts/cam-720.sh
+bindsym $mod+b exec i3-msg workspace 10; exec bash scripts/cam-720.sh
 bindsym $mod+shift+s exec systemctl suspend
 
+bindsym --release Shift+Print exec scrot -z --select $HOME/.screenshots/date +%Y-%m-%d_%H:%M:%S.png
+bindsym --release Print exec scrot -z $HOME/.screenshots/date +%Y-%m-%d_%H:%M:%S.png
