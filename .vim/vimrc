@@ -16,6 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'plasticboy/vim-markdown'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'neo4j-contrib/cypher-vim-syntax'
 
 "
 " All of your Plugins must be added before the following line
