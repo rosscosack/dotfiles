@@ -14,3 +14,4 @@ fi
 
 BROWSER=/usr/bin/firefox
 EDITOR=/usr/bin/vim
+TERM=/usr/bin/termite
