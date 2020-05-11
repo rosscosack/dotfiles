@@ -7,25 +7,14 @@ set $mod Mod1
 bindsym $mod+Shift+q kill
 
 # Please see http://i3wm.org/dmenu (a program launcher)
-bindsym $mod+d exec j4-dmenu-desktop --dmenu="dmenu_run -i -sb '#D64937' -fn Hack-11" 
-#bindsym $mod+d exec dmenu -i -sb '#D64937' 
+#bindsym $mod+d exec j4-dmenu-desktop --dmenu="dmenu_run -i -sb '#D64937' -fn Hack-11" 
+bindsym $mod+d exec dmenu_run -i -sb '#D64937' -fn 'Droid Sans Mono-14'
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
 #set font
-font pango: Hack 11
-
-workspace 1 output DVI-D-1
-workspace 2 output DVI-D-1
-workspace 3 output DVI-D-1
-workspace 4 output DVI-D-1
-workspace 5 output DVI-D-1
-workspace 6 output DVI-D-1
-workspace 7 output DVI-D-1
-workspace 8 output DVI-D-1
-workspace 10 output HDMI-1
-workspace 9 output HDMI-1
+font pango: Hack 14
 
 # change focus
 bindsym $mod+h focus left
@@ -72,7 +61,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+c exec gsimplecal
 
 #Calculator
-bindsym $mod+Shift+c exec kcalc
+bindsym $mod+Shift+c exec gnome-calculator
 
 #Firefox
 bindsym $mod+Shift+f exec firefox
@@ -84,7 +73,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-bindsym $mod+s focus child
+bindsym $mod+shift+a focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -113,7 +102,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -194,21 +183,35 @@ client.background       #FFFFFF
 exec --no-startup-id feh --randomize --bg-fill /home/ross/wallpaper/*
 bindsym $mod+shift+b exec --no-startup-id feh --randomize --bg-fill /home/ross/wallpaper/*
 exec --no-startup-id "compton -f --config ~/.config/compton/compton.conf"
-
-exec --no-startup-id xrandr --output DVI-D-1  --left-of HDMI-1 --primary --auto
+exec --no-startup-id nm-applet
+exec xmodmap -e "clear lock" #disable caps lock switch
+exec xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
+exec xmodmap -e 'keycode 9=NoSymbol' #disable esc
 
 
 #gaps
 #Note: In order to use gaps you need to disable window titlebars. This can be done by adding the following line to your config.
 # You can also use any non-zero value if you'd like to have a border
 for_window [class=".*"] border pixel 2
+for_window [class="Gnome-calculator"] floating enable
 
-gaps inner 8
-gaps outer 9
+gaps inner 12
+gaps outer 8
 #smart_gaps on
 
 bindsym $mod+b exec i3-msg workspace 10; exec bash scripts/cam-720.sh
-bindsym $mod+shift+s exec systemctl suspend
+bindsym $mod+s exec systemctl suspend
+bindsym $mod+shift+s exec shutdown now
+bindsym $mod+shift+e exec dm-tool lock
 
 bindsym --release Shift+Print exec scrot -z --select $HOME/.screenshots/date +%Y-%m-%d_%H:%M:%S.png
 bindsym --release Print exec scrot -z $HOME/.screenshots/date +%Y-%m-%d_%H:%M:%S.png
+
+# Alsa Audio Controls
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 5+ unmute  && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 5- unmute  && pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+
+# Sreen brightness controls
+Bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
