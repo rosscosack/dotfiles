@@ -14,3 +14,4 @@ fi
 
 BROWSER=/usr/bin/firefox
 EDITOR=/usr/bin/vim
+export PATH=$HOME/.local/bin:$PATH
