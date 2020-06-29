@@ -4,7 +4,7 @@ set shell=/bin/bash
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
-filetype off
+filetype on
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -17,10 +17,11 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'plasticboy/vim-markdown'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'neo4j-contrib/cypher-vim-syntax'
 Plugin 'elliottt/vim-haskell'
 Plugin 'tpope/vim-surround'
-
+Plugin 'dense-analysis/ale'
+Plugin 'prettier/vim-prettier'
+Plugin 'posva/vim-vue'
 
 "
 " All of your Plugins must be added before the following line
@@ -158,17 +159,19 @@ augroup END
 
  " Indentation settings for using 4 spaces instead of tabs.
  " Do not change 'tabstop' from its default value of 8 with this setup.
- set shiftwidth=4
- set softtabstop=4
+ set shiftwidth=2
+ set softtabstop=2
  set expandtab
-
+ 
+"set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
 
 "Prefer a slightly higher line height
 set linespace=2
 
 "Hide mouse when typing
 set mousehide
-map ,h :nohl<cr>
+
 set term=screen-256color
 set t_ut=
 
