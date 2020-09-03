@@ -15,13 +15,16 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'plasticboy/vim-markdown'
+Plugin 'godlygeek/tabular'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'elliottt/vim-haskell'
 Plugin 'tpope/vim-surround'
 Plugin 'dense-analysis/ale'
 Plugin 'prettier/vim-prettier'
 Plugin 'posva/vim-vue'
+Plugin 'aserebryakov/vim-todo-lists'
+Plugin 'tmhedberg/matchit'
+
 
 "
 " All of your Plugins must be added before the following line
@@ -39,11 +42,20 @@ else
     set guifont=Hack:h10
 endif
 
+let g:vim_markdown_override_foldtext = 0
+let g:vim_markdown_new_list_item_indent = 0
+
 set background=dark
 colorscheme gruvbox
 
 nmap ,a :w<cr>:!clear; python3 %<cr>
 
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
 
 "Treat md files as markdown
 "au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
