@@ -175,9 +175,6 @@ augroup END
  set shiftwidth=2
  set softtabstop=2
  set expandtab
- 
-"set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 1
 
 "Prefer a slightly higher line height
 set linespace=2
@@ -189,3 +186,4 @@ set term=screen-256color
 set t_ut=
 
 set splitright
+set cursorline
