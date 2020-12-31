@@ -5,7 +5,7 @@ promptinit
 # This will set the default prompt to the walters theme
 prompt walters
 
-alias ls='ls --color=auto'
+alias ls='ls --color=auto --group-directories-first'
 alias ssh='TERM=xterm-256color \ssh'
 
 # Enable colors and change prompt:
@@ -55,3 +55,4 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
