@@ -5,7 +5,7 @@ promptinit
 # This will set the default prompt to the walters theme
 prompt walters
 
-alias ls='ls --color=auto --group-directories-first'
+alias ls='ls -l --color=auto --group-directories-first'
 alias ssh='TERM=xterm-256color \ssh'
 
 # Enable colors and change prompt:
