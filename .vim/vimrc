@@ -50,12 +50,6 @@ colorscheme gruvbox
 
 nmap ,a :w<cr>:!clear; python3 %<cr>
 
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
 
 "Treat md files as markdown
 "au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
