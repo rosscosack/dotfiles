@@ -24,6 +24,7 @@ Plugin 'prettier/vim-prettier'
 Plugin 'posva/vim-vue'
 Plugin 'aserebryakov/vim-todo-lists'
 Plugin 'tmhedberg/matchit'
+Plugin 'jiangmiao/auto-pairs'
 
 
 "
