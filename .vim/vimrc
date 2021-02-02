@@ -24,7 +24,6 @@ Plugin 'prettier/vim-prettier'
 Plugin 'posva/vim-vue'
 Plugin 'aserebryakov/vim-todo-lists'
 Plugin 'tmhedberg/matchit'
-Plugin 'jiangmiao/auto-pairs'
 
 
 "
@@ -48,6 +47,8 @@ let g:vim_markdown_new_list_item_indent = 0
 
 set background=dark
 colorscheme gruvbox
+
+set colorcolumn=80
 
 nmap ,a :w<cr>:!clear; python3 %<cr>
 
