@@ -24,8 +24,6 @@ Plugin 'prettier/vim-prettier'
 Plugin 'posva/vim-vue'
 Plugin 'aserebryakov/vim-todo-lists'
 Plugin 'tmhedberg/matchit'
-Plugin 'jiangmiao/auto-pairs'
-
 
 "
 " All of your Plugins must be added before the following line
@@ -50,6 +48,7 @@ set background=dark
 colorscheme gruvbox
 
 nmap ,a :w<cr>:!clear; python3 %<cr>
+nnoremap ,d "=strftime("%c")<CR>P
 
 
 "Treat md files as markdown
