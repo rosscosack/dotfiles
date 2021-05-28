@@ -25,7 +25,6 @@ Plugin 'posva/vim-vue'
 Plugin 'aserebryakov/vim-todo-lists'
 Plugin 'tmhedberg/matchit'
 
-
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -51,6 +50,7 @@ colorscheme gruvbox
 set colorcolumn=80
 
 nmap ,a :w<cr>:!clear; python3 %<cr>
+nnoremap ,d "=strftime("%c")<CR>P
 
 
 "Treat md files as markdown
