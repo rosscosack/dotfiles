@@ -47,6 +47,8 @@ let g:vim_markdown_new_list_item_indent = 0
 set background=dark
 colorscheme gruvbox
 
+set colorcolumn=80
+
 nmap ,a :w<cr>:!clear; python3 %<cr>
 nnoremap ,d "=strftime("%c")<CR>P
 
