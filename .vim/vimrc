@@ -24,7 +24,15 @@ Plugin 'prettier/vim-prettier'
 Plugin 'posva/vim-vue'
 Plugin 'aserebryakov/vim-todo-lists'
 Plugin 'tmhedberg/matchit'
+Plugin 'ambv/black'
 
+
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+      \    '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \    'javascript': ['eslint', 'prettier'],
+    \    'python': ['black']
+    \}
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
