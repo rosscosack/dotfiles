@@ -193,4 +193,7 @@ set term=screen-256color
 set t_ut=
 
 set splitright
-set cursorline
+set cursorline 
+
+let g:ale_completion_enabled = 1
+ 
