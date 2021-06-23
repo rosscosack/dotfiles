@@ -60,6 +60,7 @@ colorscheme gruvbox
 set colorcolumn=80
 
 nmap ,a :w<cr>:!clear; python3 %<cr>
+nmap ,t :w<cr>:!clear; python3 -m unittest<cr>
 nnoremap ,d "=strftime("%c")<CR>P
 nmap gd :ALEGoToDefinition<CR>
 
